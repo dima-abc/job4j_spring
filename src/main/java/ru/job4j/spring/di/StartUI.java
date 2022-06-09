@@ -1,5 +1,6 @@
 package ru.job4j.spring.di;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,14 +15,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class StartUI {
-    private final Store store;
-    private final ConsoleInput input;
-    public static final String ASK = "Введите данные: ";
+    @Autowired
+    private Store store;
+    @Autowired
+    private ConsoleInput input;
 
-    public StartUI(Store store, ConsoleInput input) {
-        this.store = store;
-        this.input = input;
-    }
+    public static final String ASK = "Введите данные: ";
 
     public void init() {
         System.out.println("Для выхода нажмите 'q'");
